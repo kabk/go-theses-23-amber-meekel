@@ -4,7 +4,7 @@
 
 /* @FONT FACE (enable the use of 'custom fonts' inside your document) */
 
-@font-face {
+/* @font-face {
     font-family: 'Your Font Name';
     src: url('../fonts/yourfontname/yourfontname-roman.woff2'),
          url('../fonts/yourfontname/yourfontname-roman.woff'),
@@ -18,7 +18,7 @@
 
 @font-face {
     font-family: 'Your Font Name';
-    src: url('../fonts/yourfontname/yourfontname-italic.woff2'),
+    src: url('../content/fonts/AktivGrotesk-Medium.otf'),
          url('../fonts/yourfontname/yourfontname-italic.woff'),
          url('../fonts/yourfontname/yourfontname-italic.eot'),
          url('../fonts/yourfontname/yourfontname-italic.eot?#iefix') format('embedded-opentype'),
@@ -26,8 +26,64 @@
     font-weight: normal;
     font-style: italic;
     font-display: block;
+} */
+
+
+@font-face {
+  font-family: 'Aktiv-Medium';
+  src: url('../../content/fonts/AktivGrotesk-Medium.otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
 
+@font-face {
+  font-family: 'Aktiv-Medium-Italic';
+  src: url('../../content/fonts/AktivGrotesk-MediumItalic.otf');
+  font-weight: normal;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Aktiv-Medium-Bold';
+  src: url('../../content/fonts/AktivGrotesk-Bold.otf');
+  font-weight: bold;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'GT-Sectra-Regular-Italic';
+  src: url('../../content/fonts/GT-Sectra-Regular-Italic.ttf');
+  font-weight: normal;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Aktiv-Light';
+  src: url('../../content/fonts/AktivGrotesk-Light.otf');
+  font-weight: light;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Koz-Regular';
+  src: url('../../content/fonts/KozMinPro-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Koz-Medium';
+  src: url('../../content/fonts/KozMinPro-Medium.otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
 
 
 /* VARIABLES */
@@ -36,11 +92,11 @@
   /* Color settings */
   --color-background: rgba(255,255,255,1);
   --color-text: rgba(0,0,0,1);
-  --color-text-link: rgba(0,0,255,0.8);
-  --color-text-link-hover: rgba(0,0,255,0.4);
+  --color-text-link: #a3a3a3;
+  --color-text-link-hover: rgba(0,0,0,1);
   /* Font settings */
-  --font-family: 'Your Font Name', 'Helvetica', 'Arial', sans-serif;
-  --font-size: 24px;
+  --font-family: 'Aktiv-Medium', 'Aktiv-Medium-Italic', 'Aktiv-Medium-Bold', 'Ortica-Light', sans-serif;
+  --font-size: 0.6rem;
   /* Margins settings */
   --margin: 1rem;
 }
@@ -60,19 +116,20 @@ body {
   background-color: var(--color-background);
   font: var(--font-size) var(--font-family);
   color: var(--color-text);
-  width:100%;
-  height:auto;
-  overflow-y:auto;
+  /* width: 100%; */
+  height: auto;
+  overflow-y: auto;
 }
 
 a {
   color: var(--color-text-link);
-  text-decoration: underline;
+  text-decoration: none;
+  font-family: 'Aktiv-Light';
 }
 
 a:hover {
   color: var(--color-text-link-hover);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:focus-visible {
@@ -80,16 +137,50 @@ a:focus-visible {
   text-decoration: none;
 }
 
+
 h1{
   /* h1 style */
+  /* margin-left: -550px; */
+  position: fixed;
+  font-size: 0.6rem;
+  /* background-color: white; */
+  top: 10px;
+  /* left: 20px; */
 }
+
 
 h2{
   /* h2 style */
+  font-size: 0.7rem;
+  font-family: 'Aktiv-Medium';
+  display: block;
+  margin-block-start: 10rem;
+  margin-block-end: 0.83em;
+  padding-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 h3{
   /* h3 style */
+
+  /* position: fixed;
+  top: 60px;
+  left: 20px; */
+
+  width: 430px;
+  height: auto;
+  padding: 8px 0;
+  /* padding-top: 250px; */
+  position: relative;
+  
+  /* font-size: 0.6rem; */
+  font-family: 'Aktiv-Medium';
+  font-size: calc(18rem / 28);
+  line-height: 1.3;
+  /* color: black; */
+
+  overflow-x: hidden;
+  z-index: 1;
 }
 
 h4, h5, h6{
@@ -98,9 +189,80 @@ h4, h5, h6{
 
 p{
   /* paragraph style */
+  /* margin-right: 5%; */
+  margin-bottom: .1rem;
+
+  /* font-size: calc(18rem / 28); */
+  font-size: 0.7rem;
+  line-height: 1.3em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+div.image-grid{
+  max-width: 100%;
+}
+
+.column{
+  float: left;
+  width: 25%;
+  padding: 0.1%;
+}
+
+.row::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.subtitle{
+  font-family: 'Aktiv-Medium';
+  padding-left: 50px;
+  padding-top: 30px;
+}
+
+.observation{
+  /* color: #59ad56; */
+  padding: 0;
+  padding-left: 50px;
+  /* font-family: 'GT-Sectra-Regular-Italic'; */
+  /* font-family: 'Aktiv-Medium'; */
+  /* font-family: 'Aktiv-Light'; */
+  /* font-family: 'Koz-Regular'; */
+  font-family: 'Koz-Medium';
+  font-size: 0.7em;
+  line-height: 1.3;
+  width: 100%;
+  /* margin-bottom: 50px; */
+}
+
+.quote{
+  margin-left: 50px;
+  /* font-family: 'Aktiv-Medium-Italic'; */
+}
+
+.image-description{
+  font-size: 14px;
+}
+
+.link-hover{
+  color: #a3a3a3;
+  font-weight: italic;
+}
+
+.link-hover a{
+  color: blue;
+}
+
+.link-hover a:hover {
+  color: #a3a3a3;
 }
 
 ol, ul{
+  margin: 0;
+  padding: 0;
   /* ordered list and unordered list styles */
 }
 
@@ -120,28 +282,192 @@ hr{
 
 div.page-wrapper {
   /* the element that 'wraps' everything */
+  position: relative;
   padding: var(--margin);
+  padding-top: 0;
 }
 
 /* navigation */
- 
+
+
+
+header {
+  position: sticky;
+  top: 60px;
+  left: 20px;
+  width: 24ch;
+}
+
 nav{
-  
+  /* position: fixed;
+  top: 250px;
+  left: 20px; */
+
+  white-space: nowrap;
+
+  /* background-color: var(--color-background);
+  font: var(--font-size) var(--font-family);
+  color: var(--color-text); */
+  /* width:50%; */
+  /* margin-left:5%; */
+}
+
+.sidenav  a.active {
+  color: #a3a3a3;
+  /* background-color: #a3a3a3; */
+}
+
+.sidenav {
+  padding: 0px;
+  /* width: 410px; */
+  /* height: auto; */
+  /* position: fixed; */
+  /* font-family: 'Aktiv-Medium'; */
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+.sidenav .sidenav {
+  padding-left: 20px;
+}
+
+.sidenav a {
+  padding: 5px 6px 0px 0; /* 15px; */
+  text-decoration: none;
+  font-size: calc(18rem / 28);
+  /* font-size: 0.6rem; */
+  font-family: 'Aktiv-Medium';
+  color: black;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #c2c2c2;
 }
 
 /* content */
 
 main{
- 
+  margin-left: 24ch;
+  
+  /* width: min(70ch, 100% - 24ch); */
+  width: min(50ch, 100% - 24ch);
+}
+
+.img-btn{
+  position: fixed;
+  width: 100px;
 }
 
 summary{
   
 }
 
+.img{
+  padding-top: 50px;
+  /* padding-bottom: 2000px; */
+  /* margin: 10px; */
+  position: relative;
+  display: inline-block;
+}
 
 
+.column:nth-last-of-type(-n+4){
+  /* padding-top: 150px; */
+padding-top: 10%;
+}
 
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.327);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: black;
+  transform: translate(-50%,-50%);
+  z-index: 99999999;
+  -ms-transform: translate(-50%,-50%);
+}
+
+.button{
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 8%;
+  top: 5px;
+  right: 5px;
+  position: fixed;
+  right: 0;
+  z-index: 99999;
+}
+
+.modal-image{
+  position:fixed;
+  display:block;
+  width:100vw;
+  height:100vh;
+  top:0;
+  left:0;
+  z-index:99999;
+  cursor: pointer;
+}
+
+.modal-image.is-hidden{
+  display:none;
+}
+
+.modal-image figure{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-image figure img{
+  position: relative;
+  display: block;
+  width:60vw;
+  height:60vh;
+  margin:0;
+  padding:0;
+  object-fit: contain;
+  z-index:99999;
+}
+
+.modal-image figure figcaption{
+  position: relative;
+  display: block;
+  width: 60%;
+}
+
+.modal-image figure figcaption p{
+ text-align: center;
+ color: #fff;
+ background-color: #000;
+
+ /* color: #000;
+ background-color: #FFF;
+ box-shadow:0px 0px 1rem 2rem rgba(255,255,255,1); */
+}
 
 
 /* GENERAL USABILITY */
@@ -239,7 +565,7 @@ summary{
 
 
 @media (max-width: 339px) {
-
+#introduction { color: blueviolet; }
   /* use this query to apply style changes to smaller smartphones sizes (like an iPhone 5S or SE 2016), max size of 339px */
 
 }
@@ -255,9 +581,129 @@ summary{
 
 
 @media (min-width: 780px) and (max-width: 992px) {
+  h1{ position: static }
+
+  /* #abstract {
+    background-color: fuchsia;
+  } */
 
   /* use this query to apply style for 'small' desktop screens */
 
 }
 
+@media (max-width: 670px) {
 
+  main{
+    margin-left: 0;
+    /* width: min(120ch, 100%); */
+    width: auto;
+  }
+/* 
+  div.page-wrapper {
+   
+    top: 0;
+  } */
+
+  h3{
+    width: 45%;
+    /* position: absolute;
+    top: 0;
+    left: auto; */
+  }
+
+  body{
+    width: 100%;
+  }
+
+  header {
+    /* position: absolute; */
+    /* padding-top: 10px; */
+    width: 100%;
+    background-color: #fff;
+    top: 5%;
+  }
+  nav {
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-height: 20em;
+    transition: max-height .25s;
+    overflow: hidden;
+    z-index: 9999999;
+    background-color: #fff;
+    float: right;
+  }
+  nav.collapsed {
+    max-height: 1em;
+  }
+  nav.collapsed:before { 
+    content: 'menu';
+  }
+
+
+  #abstract {
+    /* background-color: fuchsia;
+    position: relative;
+    padding: 0; */
+    /* margin-left: -241px; */
+    /* left: 0; */
+    /* max-width: 900px; */
+    background-color: fuchsia;
+    /* margin-left: -241px; */
+  }
+
+  #introduction {
+    background-color: fuchsia;
+    /* margin-left: -241px; */
+
+  }
+
+  #chapter-1 {
+    background-color: fuchsia;
+
+
+  }
+
+  #chapter-2 {
+    background-color: fuchsia;
+  }
+
+  #chapter-3 {
+    background-color: fuchsia;
+  }
+
+  #chapter-4 {
+    background-color: fuchsia;
+  }
+
+  #chapter-5 {
+    background-color: fuchsia;
+  }
+
+  #conclusion {
+    background-color: fuchsia;
+
+  }
+
+  #bibliography {
+    background-color: fuchsia;
+
+  }
+  
+  #acknowledgment {
+
+  }
+
+  img{
+
+  }
+
+}
+
+
+.blijft-plakken {
+  position: sticky;
+  top: 0px;
+  padding-top:10px;
+  background-color: #fff;
+}
