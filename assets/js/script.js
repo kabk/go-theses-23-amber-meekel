@@ -9,6 +9,8 @@ $(document).ready(function() {
         document.getElementById("overlay").style.display = "none";
       }
 
+
+      
     // functions go here
 
     // when click on 'a' that has class 'to-modal-image', then select next element (div) with the class 'modal-image'
@@ -86,6 +88,15 @@ $(document).ready(function() {
     divs.forEach(div => observer.observe(div)); 
 
 
-
+    // var prevScrollpos = window.pageYOffset;
+    // window.onscroll = function() {
+    // var currentScrollPos = window.pageYOffset;
+    //   if (prevScrollpos > currentScrollPos) {
+    //     document.getElementById("sidenav").style.top = "0";
+    //   } else {
+    //     document.getElementById("sidenav").style.top = "-50px";
+    //   }
+    //   prevScrollpos = currentScrollPos;
+    // }
 
 });
