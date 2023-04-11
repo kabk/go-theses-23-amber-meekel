@@ -206,7 +206,10 @@ p{
 * {
   box-sizing: border-box;
 }
-
+article {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
 div.image-grid{
   max-width: 100%;
 }
@@ -224,23 +227,23 @@ div.image-grid{
   display: table;
 }
 
-.column-text{
+/* .column-text{
   float: left;
   width: 50%;
   padding: 0.5%;
-}
+}  */
 
-.row-text::after{
+/* .row-text::after{
   content: "";
   clear: both;
   display: table;
 }
 
-.subtitle{
+/* .subtitle{
   font-family: 'Aktiv-Medium';
   padding-left: 50px;
   padding-top: 30px;
-}
+} */
 
 .observation{
   /* color: #59ad56; */
@@ -383,8 +386,7 @@ summary{
 }
 
 .img{
-  padding-top: 50px;
-  /* padding-bottom: 2000px; */
+  padding-top: 55px;
   /* margin: 10px; */
   position: relative;
   display: inline-block;
@@ -409,19 +411,26 @@ summary{
 padding-top: 10%;
 }
 
+.overlay-container {
+  position: relative;
+}
+
 #overlay {
   position: absolute;
   display: none;
   width: 100%;
   height: 100%;
-  top: 2100px;
+  top: 113vh;
   left: 0;
   right: 0;
   bottom: 0;
+  margin-top: 35px;
   /* background-color: rgba(0, 0, 0, 0.327); */
   z-index: 10;
   cursor: pointer;
   mix-blend-mode:hard-light;
+
+  pointer-events: none;
 }
 
 .text{
@@ -439,7 +448,8 @@ padding-top: 10%;
   margin: 0;
   padding: 0;
   border: none;
-  width: 5%;
+  width: 4rem;
+  height: auto;
   top: 5px;
   right: 5px;
   position: fixed;
@@ -447,6 +457,8 @@ padding-top: 10%;
   z-index: 99999;
   cursor: pointer;
 }
+
+.button > img { display: block }
 
 .modal-image{
   position:fixed;
@@ -538,6 +550,39 @@ padding-top: 10%;
 
 
 
+.blijft-plakken {
+  position: sticky;
+  top: 0px;
+  padding-top:0.9rem;
+  background-color: #fff;
+}
+
+.image-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15vw 4px;
+}
+.image-grid-2 + .image-grid-2 {
+  padding-top: 15vw;
+}
+.column-grid {
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  /* height: calc(25vw * (4/3)); */
+  /* object-fit: cover; */
+}
+
+
+.column-grid > img {
+  /* overflow: hidden; */
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+
 
 
 /* MEDIA QUERIES */
@@ -596,15 +641,25 @@ padding-top: 10%;
 
   .desktop{display:none!important;}
   .mobile{display:block;}
-
 }
 
 
+@media (max-width: 667px) {
+
+  .image-grid-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 30vw 4px;
+  }
+  .image-grid-2 + .image-grid-2 {
+    padding-top: 30vw;
+  }
+}
+
 
 @media (max-width: 339px) {
+  
 #introduction { color: blueviolet; }
   /* use this query to apply style changes to smaller smartphones sizes (like an iPhone 5S or SE 2016), max size of 339px */
-
 }
 
 
@@ -739,12 +794,4 @@ padding-top: 10%;
     padding: 0.1%;
   }
 
-}
-
-
-.blijft-plakken {
-  position: sticky;
-  top: 0px;
-  padding-top:10px;
-  background-color: #fff;
 }
