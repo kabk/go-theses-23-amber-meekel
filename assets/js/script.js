@@ -29,7 +29,7 @@ const init = () => {
     function on() {
         document.getElementById("overlay").style.display = "block";
         // document.getElementById("overlay").style.mixBlendMode = "hard-light";
-        console.log('click')
+        // console.log('click')
         shiftImages()
     }
 
@@ -114,7 +114,7 @@ const init = () => {
     let callback = (entries, observer) => {
         entries.forEach(entry => {
             const targetDiv = document.querySelector(`[href="#${entry.target.id}"]`);
-            if (entry.isIntersecting) targetDiv.classList.add('active')
+            if (entry.isIntersecting && targetDiv) targetDiv.classList.add('active')
             const active = [...document.querySelectorAll('.active')];
             if (active.length > 1) active[dir === 1 ? 1 : 0].classList.remove("active")
         });
