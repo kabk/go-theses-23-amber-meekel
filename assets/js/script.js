@@ -29,7 +29,11 @@ const init = () => {
     function on() {
         document.getElementById("overlay").style.display = "block";
         // document.getElementById("overlay").style.mixBlendMode = "hard-light";
+<<<<<<< HEAD
         console.log('click')
+=======
+        // console.log('click')
+>>>>>>> 66efab624bfd183a444109998ac2a40d8dbc1464
         shiftImages()
     }
 
@@ -114,7 +118,11 @@ const init = () => {
     let callback = (entries, observer) => {
         entries.forEach(entry => {
             const targetDiv = document.querySelector(`[href="#${entry.target.id}"]`);
+<<<<<<< HEAD
             if (entry.isIntersecting) targetDiv.classList.add('active')
+=======
+            if (entry.isIntersecting && targetDiv) targetDiv.classList.add('active')
+>>>>>>> 66efab624bfd183a444109998ac2a40d8dbc1464
             const active = [...document.querySelectorAll('.active')];
             if (active.length > 1) active[dir === 1 ? 1 : 0].classList.remove("active")
         });
@@ -138,4 +146,8 @@ const init = () => {
 
 }
 
+<<<<<<< HEAD
 window.addEventListener('DOMContentLoaded', init)
+=======
+window.addEventListener('DOMContentLoaded', init)
+>>>>>>> 66efab624bfd183a444109998ac2a40d8dbc1464
